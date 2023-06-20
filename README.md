@@ -1,10 +1,5 @@
-[![Web](https://github.com/domshyra/domshyra/actions/workflows/main_domshyraweb.yml/badge.svg?branch=main)](https://github.com/domshyra/domshyra/actions/workflows/main_domshyraweb.yml) [![Api](https://github.com/domshyra/domshyra/actions/workflows/main_domshyraapi.yml/badge.svg)](https://github.com/domshyra/domshyra/actions/workflows/main_domshyraapi.yml)
-# domshyra 
-Grabs spotify playlists based on appsettings `Spotify:Username` value.
-
-Written in .Net and react
-
-deployed to https://www.domshyra.com
+# Container Demo
+This is a fork of my main site to containerize it as a demo. 
 
 ## Getting Started
 
