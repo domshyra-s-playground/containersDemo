@@ -1,0 +1,25 @@
+version: '3.4'
+
+services:
+  web:
+    image: web
+    build:
+      context: Web
+      dockerfile: ./Dockerfile
+    environment:
+      NODE_ENV: development
+    ports:
+      - 3000:3000
+      # - 9229:9229
+    # command: ["node", "--inspect=0.0.0.0:9229", "index.js"] #TODO: figure out how to attach debugger
+  api:
+    image: api
+    build:
+      context: Api
+      dockerfile: ./Dockerfile
+    ports:
+      - 7167:7167
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    volumes:
+      - ~/.vsdbg:/remote_debugger:rw

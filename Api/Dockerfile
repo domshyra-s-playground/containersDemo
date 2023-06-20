@@ -3,6 +3,8 @@ WORKDIR /app
 EXPOSE 7167
 
 ENV ASPNETCORE_URLS=http://+:7167
+#TODO: Change to later. conatienr will fail to run if no evnironment is set
+ENV ASPNETCORE_ENVIRONMENT=Development 
 
 # Creates a non-root user with an explicit UID and adds permission to access the /app folder
 # For more info, please refer to https://aka.ms/vscode-docker-dotnet-configure-containers

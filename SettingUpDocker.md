@@ -60,3 +60,9 @@ Run the `Docker .NET Launch` task from VSCode to start the container in debug mo
 
 
 
+## Building containers for environments
+
+### Web
+
+### Api
+The api layer is a bit different. We will get a CORS error to fix that we will need a nginx proxy to work inside the docker instance. We will also need to add a few things to the docker file to get it to work with the proxy.
