@@ -1,15 +1,6 @@
 version: '3.4'
 
 services:
-  reverseproxy:
-    image: reverseproxy
-    build:
-      context: Nginx
-      dockerfile: ./Dockerfile
-    ports:
-      - "44343:443" 
-      - "87:80" 
-    restart: always
   web:
     image: web
     build:

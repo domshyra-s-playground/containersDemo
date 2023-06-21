@@ -32,7 +32,7 @@ var app = builder.Build();
     app.UseDeveloperExceptionPage();
 // }
 app.UseStaticFiles();
-app.UseHttpsRedirection();
+// app.UseHttpsRedirection();
 
 //Routes
 UseSpotifyPlaylistRoutes(app);
