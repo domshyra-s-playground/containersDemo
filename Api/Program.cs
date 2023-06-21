@@ -3,6 +3,7 @@ using Providers;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging.ApplicationInsights;
+using Microsoft.AspNetCore.HttpOverrides;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -36,6 +37,13 @@ app.UseHttpsRedirection();
 //Routes
 UseSpotifyPlaylistRoutes(app);
 UseRatingsRoutes(app);
+
+
+//Docker stuff
+app.UseForwardedHeaders(new ForwardedHeadersOptions
+{
+    ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
+});
 
 
 //TODO remove

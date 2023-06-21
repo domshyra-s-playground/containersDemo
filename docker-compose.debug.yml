@@ -1,6 +1,15 @@
 version: '3.4'
 
 services:
+  reverseproxy:
+    image: reverseproxy
+    build:
+      context: Nginx
+      dockerfile: ./Dockerfile
+    ports:
+      - "44343:443" 
+      - "87:80" 
+    restart: always
   web:
     image: web
     build:
@@ -14,16 +23,22 @@ services:
     # command: ["node", "--inspect=0.0.0.0:9229", "index.js"] #TODO: figure out how to attach debugger
   api:
     image: api
+    depends_on:
+      - reverseproxy 
     build:
       context: Api
       dockerfile: ./Dockerfile
     ports:
       - 7167:7167
+    restart: always
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - USER_SECRETS_ID=836b9b8b-fd89-4aff-9286-809bda60998f
       - Spotify:ClientId= #TODO: Figure out how to pull secrets from user secrets
       - Spotify:ClientSecret=
     volumes:
+    # https://github.com/microsoft/DockerTools/issues/24#issuecomment-345450675
+    # https://github.com/microsoft/DockerTools/issues/223#issuecomment-1148171934
+    # https://github.com/dotnet/runtime/issues/36062#issuecomment-1107661688
       # - "${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets/:ro"
       - ~/.vsdbg:/remote_debugger:rw
