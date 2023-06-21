@@ -21,5 +21,9 @@ services:
       - 7167:7167
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
+      - USER_SECRETS_ID=836b9b8b-fd89-4aff-9286-809bda60998f
+      - Spotify:ClientId= #TODO: Figure out how to pull secrets from user secrets
+      - Spotify:ClientSecret=
     volumes:
+      # - "${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets/:ro"
       - ~/.vsdbg:/remote_debugger:rw
