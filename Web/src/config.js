@@ -1,5 +1,5 @@
 const Config = {
-	baseApiUrl: isProdEnv() ? "https://domshyraapi.azurewebsites.net/" : "https://localhost:7167/",
+	baseApiUrl: isProdEnv() ? "https://domshyraapi.azurewebsites.net/" : "https://localhost:8001/",
 };
 
 const currencyFormatter = Intl.NumberFormat("en-US", {

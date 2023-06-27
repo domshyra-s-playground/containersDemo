@@ -70,3 +70,13 @@ The api layer is a bit different. We will get a CORS error to fix that we will n
 
 Might need to modify the host file for `id-local`
 here https://gist.github.com/dahlsailrunner/679e6dec5fd769f30bce90447ae80081
+
+Possible set up without nginx proxy
+https://github.com/dotnet/dotnet-docker/blob/main/samples/run-aspnetcore-https-development.md
+
+
+`dotnet dev-certs https -ep $env:USERPROFILE\.aspnet\https\api.pfx -p <CREDENTIAL_PLACEHOLDER>`
+`dotnet dev-certs https --trust`
+`dotnet user-secrets -p api.csproj set "Kestrel:Certificates:Development:Password" "<CREDENTIAL_PLACEHOLDER>"`
+
+```dockerfile

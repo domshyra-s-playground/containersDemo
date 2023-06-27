@@ -1,15 +1,15 @@
 version: '3.4'
 
 services:
-  reverseproxy:
-    image: reverseproxy
-    build:
-      context: Nginx
-      dockerfile: ./Dockerfile
-    ports:
-      - "44343:443" 
-      - "87:80" 
-    restart: always
+  # reverseproxy:
+  #   image: reverseproxy
+  #   build:
+  #     context: Nginx
+  #     dockerfile: ./Dockerfile
+  #   ports:
+  #     - "44343:443" 
+  #     - "87:80" 
+  #   restart: always
   web:
     image: web
     build:
@@ -23,16 +23,21 @@ services:
     # command: ["node", "--inspect=0.0.0.0:9229", "index.js"] #TODO: figure out how to attach debugger
   api:
     image: api
-    depends_on:
-      - reverseproxy 
+    # depends_on:
+    #   - reverseproxy 
     build:
       context: Api
       dockerfile: ./Dockerfile
     ports:
-      - 7167:7167
+      - 8000:80
+      - 8001:443
     restart: always
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=https://+:443;http://+80
+      - ASPNETCORE_HTTPS_PORT=8001
+      - ASPNETCORE_Kestrel__Certificates__Default__Password=<CREDENTIAL_PLACEHOLDER>
+      - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/api.pfx
       - USER_SECRETS_ID=836b9b8b-fd89-4aff-9286-809bda60998f
       - Spotify:ClientId= #TODO: Figure out how to pull secrets from user secrets
       - Spotify:ClientSecret=
@@ -42,3 +47,5 @@ services:
     # https://github.com/dotnet/runtime/issues/36062#issuecomment-1107661688
       # - "${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets/:ro"
       - ~/.vsdbg:/remote_debugger:rw
+      - "${APPDATA}/microsoft/UserSecrets/:/root/.microsoft/usersecrets" #possible getting user secrets to work
+      - "${USERPROFILE}/.aspnet/https:/https/"

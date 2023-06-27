@@ -1,15 +1,6 @@
 version: '3.4'
 
 services:
-  reverseproxy:
-    image: reverseproxy
-    build:
-      context: Nginx
-      dockerfile: ./Dockerfile
-    ports:
-      - "443:443" 
-      - "80:80" 
-    restart: always
   web:
     image: web
     build:
@@ -30,3 +21,4 @@ services:
       - ASPNETCORE_ENVIRONMENT=Development #TODO: CHANGE THIS 
     ports:
       - 7167:7167
+
