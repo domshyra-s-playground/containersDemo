@@ -6,7 +6,6 @@
             "type": "docker",
             "request": "attach",
             "platform": "netCore",
-            // "containerName": "api",
             "sourceFileMap": {
                 "/src": "${workspaceFolder}/Api"
             },
@@ -51,8 +50,19 @@
             "type": "node",
             "request": "attach",
             "name": "Docker: Attach to Node",
-            "remoteRoot": "/usr/src/app",
+            "remoteRoot": "/usr/src/app/",
             "port": 9229 // Optional; otherwise inferred from the docker-compose.debug.yml.
         },
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Launch Chrome against localhost",
+            "url": "http://localhost:3000",
+            "webRoot": "${workspaceFolder}/Web",
+            "sourceMaps": true,
+            "sourceMapPathOverrides": {
+                "/usr/src/app/*": "${webRoot}/*"
+            }
+        }
     ]
 }
