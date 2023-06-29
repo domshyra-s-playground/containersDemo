@@ -26,9 +26,11 @@ services:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_URLS=https://+:443;http://+80
       - ASPNETCORE_HTTPS_PORT=8001
-      - ASPNETCORE_Kestrel__Certificates__Default__Password=<CREDENTIAL_PLACEHOLDER>
+      - ASPNETCORE_Kestrel__Certificates__Default__Password=${CERT_PASSWORD}
       - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/api.pfx
       - USER_SECRETS_ID=836b9b8b-fd89-4aff-9286-809bda60998f
+      - Spotify:ClientId=${SPOTIFY_CLIENT_ID}
+      - Spotify:ClientSecret=${SPOTIFY_CLIENT_SECRET}
     volumes:
     # https://github.com/microsoft/DockerTools/issues/24#issuecomment-345450675
     # https://github.com/microsoft/DockerTools/issues/223#issuecomment-1148171934
