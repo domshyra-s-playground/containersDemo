@@ -26,7 +26,7 @@ services:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_URLS=https://+:443;http://+80
       - ASPNETCORE_HTTPS_PORT=8001
-      - ASPNETCORE_Kestrel__Certificates__Default__Password=${CERT_PASSWORD}
+      - ASPNETCORE_Kestrel__Certificates__Default__Password=${DEV_CERT_PASSWORD}
       - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/api.pfx
       - USER_SECRETS_ID=836b9b8b-fd89-4aff-9286-809bda60998f
       - Spotify:ClientId=${SPOTIFY_CLIENT_ID}
