@@ -2,7 +2,7 @@ version: '3.4'
 #TODO: test this file in a web service on azure to see if it works
 services:
   web:
-    image: web
+    image: domshyra/containersdemo:web:prod
     build:
       context: Web
       dockerfile: ./Dockerfile
@@ -12,7 +12,7 @@ services:
     ports:
       - 3000:3000
   api:
-    image: api
+    image: domshyra/containersdemo:api:prod
     build:
       context: Api
       dockerfile: ./Dockerfile

@@ -2,7 +2,7 @@ version: '3.4'
 
 services:
   web:
-    image: web
+    image: web:local
     build:
       context: Web
       dockerfile: ./Dockerfile.debug
@@ -14,7 +14,7 @@ services:
     volumes:
       - ./Web:/usr/src/app/ 
   api:
-    image: api
+    image: api:local
     build:
       context: Api
       dockerfile: ./Dockerfile.debug
@@ -22,6 +22,8 @@ services:
       - 8000:80
       - 8001:443
     restart: always
+    env_file:
+    - .env
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_URLS=https://+:443;http://+80

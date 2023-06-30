@@ -60,7 +60,7 @@ Run the `Docker .NET Launch` task from VSCode to start the container in debug mo
 
 
 
-# Docker compose 
+# Docker compose Locally
 
 ### Web
 
@@ -76,4 +76,6 @@ https://github.com/dotnet/dotnet-docker/blob/main/samples/run-aspnetcore-https-d
 `dotnet dev-certs https --trust`
 `dotnet user-secrets -p api.csproj set "Kestrel:Certificates:Development:Password" "<CREDENTIAL_PLACEHOLDER>"`
 
-```dockerfile
+# Docker Compose Production
+`docker compose build`
+`docker-compose push`
