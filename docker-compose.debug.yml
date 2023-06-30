@@ -23,7 +23,7 @@ services:
       - 8001:443
     restart: always
     env_file:
-    - .env
+      - .env
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_URLS=https://+:443;http://+80
