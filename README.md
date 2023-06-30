@@ -43,6 +43,8 @@ modify your `.env` file to add secrets for spotify.
 
 for dev you'll need to set up a `dev-cert` for the api to enable https.
 
+navigate to the Api folder and run the following commands
+
 `dotnet dev-certs https -ep $env:USERPROFILE\.aspnet\https\api.pfx -p your_cert_password`
 `dotnet dev-certs https --trust`
 `dotnet user-secrets -p api.csproj set "Kestrel:Certificates:Development:Password" "your_cert_password"`
