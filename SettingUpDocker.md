@@ -60,7 +60,7 @@ Run the `Docker .NET Launch` task from VSCode to start the container in debug mo
 
 
 
-## Building containers for environments
+# Docker compose 
 
 ### Web
 
