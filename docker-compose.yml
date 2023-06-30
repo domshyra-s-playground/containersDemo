@@ -8,12 +8,11 @@ services:
       dockerfile: ./Dockerfile
     environment:
       NODE_ENV: production
+      API_URL: https://domshyra-containerdemo-api.azurewebsites.net/
     ports:
       - 3000:3000
   api:
     image: api
-    depends_on:
-      - reverseproxy 
     build:
       context: Api
       dockerfile: ./Dockerfile

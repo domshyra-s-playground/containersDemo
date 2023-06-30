@@ -43,14 +43,20 @@ modify your `.env` file to add secrets for spotify.
 
 for dev you'll need to set up a `dev-cert` for the api to enable https.
 
-navigate to the Api folder and run the following commands
+navigate to the Api folder and run the following commands. `cd Api` 
+
+You'll want to pick a password for `your_cert_password` and use it for all three commands.
 
 `dotnet dev-certs https -ep $env:USERPROFILE\.aspnet\https\api.pfx -p your_cert_password`
-`dotnet dev-certs https --trust`
+
+`dotnet dev-certs https --trust` unless it's already trusted on your machine.
+
 `dotnet user-secrets -p api.csproj set "Kestrel:Certificates:Development:Password" "your_cert_password"`
 
 add `your_cert_password` to the env file. 
 
+Navigate back to the root directory. `cd ..`
+
 Run docker desktop, or however you get the docker daemon running. 
 
-run `docker compose -f docker-compose.debug.yml --env-file .env build` to build the containers, then run `docker compose -f docker-compose.debug.yml up` to start the containers.
+run the following commmand `docker compose -f docker-compose.debug.yml --env-file .env build` to build the containers, then run `docker compose -f docker-compose.debug.yml up` to start the containers.
