@@ -12,7 +12,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddControllersWithViews();
-//TODO remove
+
 builder.Services.AddCors();
 builder.Services.AddDbContext<PlaylistDbContext>(options =>
     options.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking));
@@ -39,14 +39,6 @@ UseSpotifyPlaylistRoutes(app);
 UseRatingsRoutes(app);
 
 
-//Docker stuff
-app.UseForwardedHeaders(new ForwardedHeadersOptions
-{
-    ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
-});
-
-
-//TODO remove
 app.UseCors(p => p.WithOrigins(app.Configuration["FrontEndUrl"]).AllowAnyHeader().AllowAnyMethod());
 app.UseRouting();
 app.UseEndpoints(e => e.MapDefaultControllerRoute());
