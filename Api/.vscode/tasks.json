@@ -46,9 +46,9 @@
             "dockerBuild": {
                 "tag": "api:dev",
                 "target": "base",
-                "dockerfile": "${workspaceFolder}/Dockerfile",
+                "dockerfile": "${workspaceFolder}/Dockerfile.debug",
                 "context": "${workspaceFolder}",
-                "pull": true
+                "pull": true,
             },
             "netCore": {
                 "appProject": "${workspaceFolder}/Api.csproj"
