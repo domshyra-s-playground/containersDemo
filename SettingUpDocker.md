@@ -68,14 +68,10 @@ Run the `Docker .NET Launch` task from VSCode to start the container in debug mo
 The api layer is a bit different. We will get a CORS error to fix that we will need a nginx proxy to work inside the docker instance. We will also need to add a few things to the docker file to get it to work with the proxy.
 
 
-Possible set up without nginx proxy
-https://github.com/dotnet/dotnet-docker/blob/main/samples/run-aspnetcore-https-development.md
-
-
-`dotnet dev-certs https -ep $env:USERPROFILE\.aspnet\https\api.pfx -p <CREDENTIAL_PLACEHOLDER>`
+`dotnet dev-certs https -ep $env:USERPROFILE\.aspnet\https\api.pfx -p your_cert_password`
 `dotnet dev-certs https --trust`
-`dotnet user-secrets -p api.csproj set "Kestrel:Certificates:Development:Password" "<CREDENTIAL_PLACEHOLDER>"`
+`dotnet user-secrets -p api.csproj set "Kestrel:Certificates:Development:Password" "your_cert_password"`
 
-# Docker Compose Production
+# Docker Compose Production (TODO)
 `docker compose build`
 `docker-compose push`
