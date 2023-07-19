@@ -10,14 +10,14 @@ services:
       NODE_ENV: production
       API_URL: https://domshyra-containerdemo-api.azurewebsites.net/
     ports:
-      - 3000:3000
+      - 3000:3000 # might be able to drop the 3000:3000 in favor of just 3000 for scaling using --scale web=2 or something
   api:
     image: domshyra/containersdemo-api:prod
     build:
       context: Api
       dockerfile: ./Dockerfile
     ports:
-      - 8000:80
+      - 8000:80 # this would be intresting for scaling, because then you would need a load balancer to direct from the front end to the apis
       - 8001:443
     environment:
       - ASPNETCORE_ENVIRONMENT=Release
