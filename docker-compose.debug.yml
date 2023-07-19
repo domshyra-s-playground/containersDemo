@@ -2,7 +2,7 @@ version: '3.4'
 
 services:
   web:
-    image: web:local
+    image: domshyra/containersdemo-web:local
     build:
       context: Web
       dockerfile: ./Dockerfile.debug
@@ -14,7 +14,7 @@ services:
     volumes:
       - ./Web:/usr/src/app/ 
   api:
-    image: api:local
+    image: domshyra/containersdemo-api:local
     build:
       context: Api
       dockerfile: ./Dockerfile.debug
