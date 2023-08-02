@@ -72,6 +72,7 @@ The api layer is a bit different. We will get a CORS error to fix that we will n
 `dotnet dev-certs https --trust`
 `dotnet user-secrets -p api.csproj set "Kestrel:Certificates:Development:Password" "your_cert_password"`
 
+
 # Docker Compose Production (TODO)
 `docker compose build`
 `docker-compose push`

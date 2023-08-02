@@ -1,5 +1,9 @@
 FROM node:lts-alpine
 ENV NODE_ENV=development
+# Bootstrapped React apps (using create-react-app) strip most environment variables with the exception of NODE_ENV 
+# and any variables that are prefixed with REACT_APP_<your var>. 
+# we will prefix all variables with REACT_APP_ to work with the default install configuration.
+ENV REACT_APP_API_URL=https://localhost:8001/
 WORKDIR /usr/src/app
 COPY ["package.json", "package-lock.json*", "npm-shrinkwrap.json*", "./"]
 RUN npm install --silent && mv node_modules ../

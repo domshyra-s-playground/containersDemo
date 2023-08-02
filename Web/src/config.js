@@ -1,5 +1,6 @@
 const Config = {
-	baseApiUrl: process.env.API_URL ?? "http://localhost:8001/",
+	baseApiUrl: process.env.REACT_APP_API_URL ?? "https://localhost:8001/",
+	env: process.env.NODE_ENV,
 };
 
 const currencyFormatter = Intl.NumberFormat("en-US", {

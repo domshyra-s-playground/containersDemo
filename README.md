@@ -60,3 +60,8 @@ Navigate back to the root directory. `cd ..`
 Run docker desktop, or however you get the docker daemon running. 
 
 run the following commmand `docker compose -f docker-compose.debug.yml build` to build the containers, then run `docker compose -f docker-compose.debug.yml up` to start the containers.
+
+### Docker Compose Debug
+after the containers are running, we run in vscode `Launch Chrome against localhost` to debug the front end.  
+
+For the api we run `Docker .NET Attach (Preview)` then select containersdemo > containersdemo_api_1

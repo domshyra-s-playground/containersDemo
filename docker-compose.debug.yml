@@ -8,7 +8,6 @@ services:
       dockerfile: ./Dockerfile.debug
     environment:
       NODE_ENV: development
-      API_URL: https://localhost:8001/
     ports:
       - 3000:3000
     volumes:
