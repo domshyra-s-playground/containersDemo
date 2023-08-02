@@ -3,8 +3,8 @@ WORKDIR /app
 EXPOSE 8001
 ENV ASPNETCORE_ENVIRONMENT=Development
 ENV ASPNETCORE_URLS=http://+:8001
-ENV SPOTIFY_CLIENT_ID=your_client_id
-ENV SPOTIFY_CLIENT_SECRET=your_client_secret
+ENV Spotify:ClientId=your_client_id
+ENV Spotify:ClientSecret=your_client_secret
 
 # Creates a non-root user with an explicit UID and adds permission to access the /app folder
 # For more info, please refer to https://aka.ms/vscode-docker-dotnet-configure-containers
