@@ -1,4 +1,6 @@
-# Adding docker files
+# Setting up docker
+this goes over the process of adding docker to a project
+## Adding docker files
 
 in vscode us command "Docker: Add" to both the API proj and the Web project
 
