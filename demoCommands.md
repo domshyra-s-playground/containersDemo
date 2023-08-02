@@ -15,7 +15,7 @@ Assign it port 8001 in docker desktop.
 #### Web
 
 `docker image build . -f Dockerfile.debugNoHttps -t web-demo`
-Assign it port 3000 in docker desktop. or with a `-p 3000:3000` in the run command
+Assign it port 3000 in docker desktop. 
 
 ## docker compose 
 
