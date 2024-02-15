@@ -37,15 +37,16 @@ in vscode use "Launch Chrome against localhost" or run `npm start`
 
 
 
-## Getting Started Docker
+## Getting Docker Started Locally
 
 modify your `.env` file to add secrets for spotify.
 
+#### dev-cert
 for dev you'll need to set up a `dev-cert` for the api to enable https.
 
-navigate to the Api folder and run the following commands. `cd Api` 
+To do this, navigate to the Api folder and run the following commands. `cd Api` 
 
-You'll want to pick a password for `your_cert_password` and use it for all three commands.
+You'll want to pick a password for `your_cert_password` and use it for all three of the following commands.
 
 `dotnet dev-certs https -ep $env:USERPROFILE\.aspnet\https\api.pfx -p your_cert_password`
 
@@ -53,15 +54,24 @@ You'll want to pick a password for `your_cert_password` and use it for all three
 
 `dotnet user-secrets -p api.csproj set "Kestrel:Certificates:Development:Password" "your_cert_password"`
 
-add `your_cert_password` to the env file. 
+Then, add `your_cert_password` to the env file. 
+
+#### Starting the containers 
 
 Navigate back to the root directory. `cd ..`
 
 Run docker desktop, or however you get the docker daemon running. 
 
-run the following command `docker compose -f docker-compose.debug.yml build` to build the containers, then run `docker compose -f docker-compose.debug.yml up` to start the containers.
+run the following command `docker compose -f docker-compose.debug.yml build` to build the containers, then run `docker compose -f docker-compose.debug.yml up` to start the containers for local dev.
 
-### Docker Compose Debug
-after the containers are running, we run in vscode `Launch Chrome against localhost` to debug the front end.  
+### Debugging the containters (Docker Compose Debug)
 
-For the api we run `Docker .NET Attach (Preview)` then select containersdemo > containersdemo_api_1
+I would recommend opening a separate vscode instance for api and for web. 
+
+Once your containers are up and running you can debug. 
+
+#### Web
+run in vscode `Launch Chrome against localhost` to debug the front end.  
+
+#### Api
+run `Docker .NET Attach (Preview)`, then select containersdemo > containersdemo_api_1 and you'll be debugging both the api and the web. 
